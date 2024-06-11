@@ -3,8 +3,10 @@ import React from 'react'
 const AboutLayout = ({children}) => {
     return (
         <section>
-            <h1 className=''>About Layout</h1>
-            <div>{children}</div>
+            <div className="container">
+                <h1 className=''>About Layout 1</h1>
+                <div>{children}</div>
+            </div>
         </section>
     )
 }

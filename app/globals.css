@@ -4,6 +4,9 @@
 
 
 h1 {
-  color: red !important;
   font-size: xx-large !important;
+}
+
+nav {
+  border: 1px solid rgb(85, 85, 85) !important;
 }

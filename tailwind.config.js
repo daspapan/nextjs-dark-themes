@@ -5,14 +5,29 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+    container: {
+      center: true,
+      padding: {
+        default: "1rem",
+        md: "1.5rem",
+        lg: "2rem"
       },
-    },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        size: {
+          "3x1": "3rem"
+        },
+        fontWeight: {
+          bold: "700"
+        },
+        fontColor: {
+          primary: "#333",
+          secondary: "#666"
+        }
+      },
+    }
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
