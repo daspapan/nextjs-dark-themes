@@ -25,15 +25,15 @@ export async function POST(req) {
         const { firstName, lastName, comment } = await req.json();
         console.log(firstName, lastName, comment)
         if(!firstName || !lastName || !comment) throw new Error('[Guestbook-POST]Please fill out all fields.');
-        
-        const { insertedId, error } = await createGuestbookEntry({ firstName, lastName, comment });
 
-        console.log(insertedId)
-        console.error(error)
+        const { data } = await createGuestbookEntry({ firstName, lastName, comment });
 
-        if(error) throw new Error('Failed to create guestbook entry.');
+        console.log("data",data)
+        // console.error(error)
 
-        return NextResponse.json({ message: 'Entry created successfully.', results: { _id: insertedId } }, { status: 201 });
+        // if(error) throw new Error('Failed to create guestbook entry.');
+
+        return NextResponse.json({ message: 'Entry created successfully.', results: data }, { status: 201 });
 
     } catch (error) {
          

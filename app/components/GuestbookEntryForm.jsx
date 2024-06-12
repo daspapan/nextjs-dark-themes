@@ -16,10 +16,10 @@ const GuestbookEntryForm = () => {
         const form = event.currentTarget;
         const formData = new FormData(form);
         const {firstName, lastName, message} = Object.fromEntries(formData);
-        console.log("======================")
-        console.log(Object.fromEntries(formData))
-        console.log(firstName.trim(), lastName.trim(), message.trim())
-        console.log("======================")
+        // console.log("======================")
+        // console.log(Object.fromEntries(formData))
+        // console.log(firstName.trim(), lastName.trim(), message.trim())
+        // console.log("======================")
         
 
         if(!firstName || !lastName || !message) return;

@@ -28,7 +28,7 @@ const page = async() => {
                     {entries.map(entry => (
                         <li key={entry._id} className="bg-white shadow-md p-4">
 
-                            <div>
+                            <div >
 
 
                                 <Image 
