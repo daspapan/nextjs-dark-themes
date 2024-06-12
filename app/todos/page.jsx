@@ -14,7 +14,7 @@ const Page = async () => {
     const todos = await getTodos();
 
     return (
-        <section className="py-24">
+        <section className="py-4">
             <div className="container">
                 <h1 className="text-3x1">
                     Todos Page
