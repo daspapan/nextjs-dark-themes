@@ -3,6 +3,8 @@ import { getGuestbookEntries } from '@/lib/mongo/guestbook.js'
 import GuestbookEntryForm from '@/components/GuestbookEntryForm';
 import Image from 'next/image';
 
+export const dynamic = 'force-dynamic'
+
 async function getData() {
     const {entries, error} = await getGuestbookEntries();
 
@@ -28,20 +30,21 @@ const page = async() => {
                     {entries.map(entry => (
                         <li key={entry._id} className="bg-white shadow-md p-4">
 
-                            <div >
-
-
-                                <Image 
-                                    className="p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" 
-                                    width={40}
-                                    height={40}
-                                    src={entry.url} alt="Bordered avatar"/>
-
-
-                                <h2 className="text-gray-500 font-bold">{entry.name}</h2>
+                            <div className="grid grid-rows-3 grid-flow-col gap-4">
+                                <div className="row-span-3">
+                                    <Image 
+                                        className="p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" 
+                                        width={40}
+                                        height={40}
+                                        src={entry.url} alt="Bordered avatar"/>
+                                </div>
+                                <div className="col-span-2">
+                                    <h2 className="text-gray-500 font-bold">{entry.name}</h2>
+                                </div>
+                                <div className="row-span-2 col-span-2">
+                                    <p className="mt-2">{entry.comment}</p>
+                                </div>
                             </div>
-
-
 
                             <div className="flex items-center mt-2">
                                 <svg className="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
@@ -64,7 +67,11 @@ const page = async() => {
                                 <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">5</p>
                             </div>
 
-                            <p className="mt-2">{entry.comment}</p>
+                            
+
+                            <div>
+                                <button type="button" className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
+                            </div>
                         </li>
                     ))}
                 </ul>
